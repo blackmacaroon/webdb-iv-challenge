@@ -6,12 +6,12 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('dishes').insert([
-        {name: "pizzas"},
-        {name: "pastas"},
-        {name: "sandwiches"},
-        {name: "salads"},
-        {name: "sides"},
-        {name: "desserts"}
+        {dish_type: "pizzas"},
+        {dish_type: "pastas"},
+        {dish_type: "sandwiches"},
+        {dish_type: "salads"},
+        {dish_type: "sides"},
+        {dish_type: "desserts"}
       ]);
     });
 };
