@@ -1,8 +1,11 @@
 const express = require('express');
 
+const dishesRouter = require('./routes/dishesRouter');
+
 const server = express();
 
 server.use(express.json());
+server.use('/api/dishes', dishesRouter);
 
 // sanity check route 
 server.get('/', (req, res) => {
