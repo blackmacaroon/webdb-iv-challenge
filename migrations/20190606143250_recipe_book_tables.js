@@ -35,7 +35,31 @@ exports.up = function(knex, Promise) {
             tbl
             .string('measurement_unit', 60)
       })
-      .createTable('recipes')
+      .createTable('recipes', tbl => {
+            tbl
+            .increments()
+            tbl
+            .integer('recipe-name-id')
+            .unsigned()
+            .references('id')
+            .inTable('recipe-names')
+            .onDelete('RESTRICT')
+            .onUpdate('CASCADE')
+            tbl
+            .integer('ingredient-id')
+            .unsigned()
+            .references('id')
+            .inTable('ingredients')
+            .onDelete('RESTRICT')
+            .onUpdate('CASCADE')
+            tbl
+            .integer('measurement-id')
+            .unsigned()
+            .references('id')
+            .inTable('measurements')
+            .onDelete('RESTRICT')
+            .onUpdate('CASCADE')
+      })
 };
 
 exports.down = function(knex, Promise) {
